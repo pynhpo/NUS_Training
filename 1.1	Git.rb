@@ -17,3 +17,6 @@ git checkout abc
 git rebase master
 git checkout master
 git merge abc
+
+#.git config
+git config remote.origin.url git@github.com-pynhpo:pynhpo/GitTraning.git
