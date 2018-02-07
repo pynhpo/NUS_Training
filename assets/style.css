@@ -1,0 +1,13 @@
+header {
+	text-align: center;
+}
+
+footer {
+	text-align: center;
+}
+
+#cover {
+	background-image: background.jpg;
+	width: 500px;
+	height: 300px;
+}
