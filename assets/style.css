@@ -1,13 +1,53 @@
 header {
+	color: white;
 	text-align: center;
+	padding-top: 10px;
 }
 
 footer {
+	color: white;
 	text-align: center;
+	margin-top: 20px;
+}
+
+#container {
+	margin: auto;	
+	background-image: url("background.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+	width: 850px;
+	height: 540px;
+	background-size: cover;
 }
 
 #cover {
-	background-image: background.jpg;
-	width: 500px;
-	height: 300px;
+	padding-left: 40px;
+	padding-right: 40px;
+	display: -webkit-flex; /* Safari */
+	display: flex;
+	-webkit-justify-content: center; /* Safari */
+	justify-content:         center;
+	height: 400px;
 }
+
+.left-side {
+	width: 45%;
+	color: white;
+	background-color: rgb(7, 3, 3);
+	opacity: 0.7;
+	padding: 40px;
+}
+
+.right-side {
+	width: 40%;
+	padding: 30px;
+	color: white;
+	background-color: rgb(23, 149, 180);
+	opacity: 0.7;
+}
+
+.right-side > h2 {
+text-align: center;
+}
+
+
