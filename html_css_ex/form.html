@@ -1,23 +1,96 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="assets/style.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
 </head>
 <body>
 
-<div id="container">
+<div id="container" class="container-fluid">
 	<header>
 		<h1>HOTEL INFO FORM</h1>
 	</header>
-	<div id="cover">
-		<div class="left-side">
+	<div id="cover" class="row match-my-cols">
+		<div class="left-side col-sm-6 col-xs-12">
 			<h2>HOTEL</h2>
 			<h3>Lorem ipsum dolor sit amet</h3>
 			<p>Lorem ipsum dolor sit amet, libero enim sapien praesent elit gravida. Arcu praesent nunc. In nec sit, magna ridiculus a ipsum in scelerisque, porta viverra in et nulla ut sed. Cras rutrum viverra cras duis, eros neque volutpat eros phasellus massa viverra, mi vestibulum necessitatibus, ut purus aptent condimentum facilisi sem voluptas, dignissim venenatis. Aenean massa accumsan at, sed libero consequat etiam. Sit pariatur ac sit nunc.</p>
 		</div>
-		<div class="right-side">
+		<div class="right-side col-sm-6 col-xs-12">
 			<h2>PERSONAL INFO</h2>
-			<form action="">
+			<form class="form-horizontal">
+				<div class="form-group">
+					<label class="col-sm-4 col-xs-12">First name:</label>
+					<div class="col-sm-8 col-xs-12">
+					<input type="text" class="form-control" name="firstname" placeholder="First name">
+					</div>
+				</div>
+				<div class="form-group">
+						<label class="col-sm-4 col-xs-12">Last name:</label>
+						<div class="col-sm-8 col-xs-12">
+						<input type="text" class="form-control" name="lastname" placeholder="Last name">
+						</div>
+				</div>
+				<div class="form-group">
+						<label class="col-sm-4 col-xs-12">Age:</label>
+						<div class="col-sm-8 col-xs-12">
+						<input type="number" class="form-control" name="age" placeholder="Age">
+						</div>
+				</div>
+				<div class="form-group">
+						<label class="col-sm-4 col-xs-12">Gender:</label>
+						<div class="col-sm-8 col-xs-12">
+							<div class="radio">
+								<label>
+									<input type="radio" name="gender" value="male"> Male 
+								</label>
+								<label>
+									<input type="radio" name="gender" value="female"> female
+								</label>
+							</div>
+						</div>
+					</div>
+				<div class="form-group">
+					<label class="col-sm-4 col-xs-12">Address:</label>
+					<div class="col-sm-8 col-xs-12">
+						<select name="district" class="form-control">
+							<option value="district1">District 1</option>
+							<option value="district2">District 2</option>
+							<option value="district3">District 3</option>
+							<option value="district4">District 4</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-4 col-xs-12">F-Colors:</label>
+						<div class="checkbox col-sm-8 col-xs-12">
+							<label>
+							  <input type="checkbox" name="favorite" value="red"> Red
+							</label>
+							<label>
+							  <input type="checkbox" name="favorite" value="blue"> Blue
+							</label>
+							<label>
+							  <input type="checkbox" name="favorite" value="green"> Green
+							</label>
+							<label>
+							  <input type="checkbox" name="favorite" value="yellow"> Yellow
+							</label>
+						</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-4 col-sm-8 col-xs-12">
+						<button type="submit" value="Submit" class="btn btn-default">Submit</button>
+					</div>
+				</div>
+
+			</form>
+
+
+
+			<!-- <form action="">
 				First name:<br>
 				<input type="text" name="firstname"><br>
 				Last name:<br>
@@ -38,14 +111,17 @@
 				<input type="checkbox" name="favorite" value="green"> green <br>
 				<input type="checkbox" name="favorite" value="yellow"> yellow <br>
 			<input type="submit" value="Submit">
-			</form>
+			</form> -->
 		</div>
 	</div>	
-	<footer>
+	<footer class="row">
+		<div class="col-sm-12 col-xs-12">
 		&copy; 2017 Hotel Info Form. All rights reserved I Design by PP
+		</div>
 	</footer>
 </div>
-
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
 </body>
 </html>
 

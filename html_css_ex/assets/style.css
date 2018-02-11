@@ -15,37 +15,46 @@ footer {
 	background-image: url("background.jpg");
     background-repeat: no-repeat;
     background-position: center center;
-	width: 850px;
-	height: 540px;
+	width: 70%;
+	min-width: 450px;
 	background-size: cover;
 }
 
 #cover {
 	padding-left: 40px;
 	padding-right: 40px;
-	display: -webkit-flex; /* Safari */
-	display: flex;
-	-webkit-justify-content: center; /* Safari */
-	justify-content:         center;
-	height: 400px;
 }
 
 .left-side {
-	width: 45%;
 	color: white;
 	background-color: rgba(7, 3, 3, 0.7);
-	padding: 40px;
+	padding-left: 30px;
+	padding-right: 30px;
+	height: inherit;
 }
 
 .right-side {
-	width: 40%;
-	padding: 30px;
+	padding-left: 30px;
+	padding-right: 30px;
 	color: white;
 	background-color: rgba(23, 149, 180, 0.7);
+	height: inherit;
 }
 
 .right-side > h2 {
 text-align: center;
 }
 
+.form-group > label {
+	padding-top: 7px !important;
+	padding-right: 0px !important;
+}
 
+.row.match-my-cols {
+    overflow: hidden; 
+}
+
+.row.match-my-cols [class*="col-sm"]{
+    margin-bottom: -99999px;
+    padding-bottom: 99999px;
+}
