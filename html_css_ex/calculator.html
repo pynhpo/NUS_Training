@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="assets/style_cal.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+</head>
+<body>
+
+<div id="container" class="container-fluid">
+	<div id="cover">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="input-group input-lg">
+			      <div class="input-group-btn">
+			        <button type="button" class="btn btn-default dropdown-toggle btn-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-hidden="true"><span class="caret"></span></button>
+			        <ul class="dropdown-menu">
+			          <li><a href="#">History</a></li>
+			          <li role="separator" class="divider"></li>
+			        </ul>
+			      </div><!-- /btn-group -->
+			      <input type="text" class="form-control input-lg text-right" readonly>
+			    </div><!-- /input-group --> 
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-3"><div class="center-block num btn"><span>1</span></div></div>
+			<div class="col-sm-3"><div class="center-block num btn"><span>2</span></div></div>
+			<div class="col-sm-3"><div class="center-block num btn"><span>3</span></div></div>
+			<div class="col-sm-3"><div class="center-block num btn"><span>0</span></div></div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-3"><div class="center-block num btn"><span>4</span></div></div>
+			<div class="col-sm-3"><div class="center-block num btn"><span>5</span></div></div>
+			<div class="col-sm-3"><div class="center-block num btn"><span>6</span></div></div>
+			<div class="col-sm-3"><div class="center-block operator btn"><span>cl</span></div></div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-3"><div class="center-block num btn"><span>7</span></div></div>
+			<div class="col-sm-3"><div class="center-block num btn"><span>8</span></div></div>
+			<div class="col-sm-3"><div class="center-block num btn"><span>9</span></div></div>
+			<div class="col-sm-3"><div class="center-block operator btn"><span>=</span></div></div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-3"><div class="center-block operator btn"><span>+</span></div></div>
+			<div class="col-sm-3"><div class="center-block operator btn"><span>-</span></div></div>
+			<div class="col-sm-3"><div class="center-block operator btn"><span>*</span></div></div>
+			<div class="col-sm-3"><div class="center-block operator btn"><span>/</span></div></div>
+		</div>
+	</div>
+</div>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	var val = "";
+	var eq = false;
+	var drop_res = [];
+	$(".num, .operator").click(function(){		
+		if(($(this).text() != "=") && ($(this).text() != "cl")) {
+			if(($(this).text() != "+") && ($(this).text() != "-") && ($(this).text() != "*") && ($(this).text() != "/")) {
+				if(eq == true) {
+					val = "";
+					eq = false;
+				};
+				val += $(this).text();
+				$("input").val(val);
+			} else {
+				eq = false;
+				if (val != ""){
+					val += $(this).text();
+					$("input").val(val);
+				}
+			}			
+		} else if($(this).text() == "=") { 
+			if(drop_res.length < 3) {
+				drop_res.push(val);
+			} else {
+				drop_res.shift();
+				drop_res.push(val);
+			};
+			var res = eval(val);
+			$("input").val(res);
+			val = res;
+			eq = true;
+		} else { 
+				val = "";
+				$("input").val(val);
+				eq = false;
+			}
+
+	});
+
+	$("button").click(function() {
+		$("ul.dropdown-menu .add").remove();
+		for(var i = 0; i < drop_res.length; i++) {
+			$("ul.dropdown-menu").append("<li class=\"add\"><a href=\"#\">"+drop_res[i]+"</a></li>")
+		}
+	});
+
+	$("ul.dropdown-menu .add").click(function() {
+		$("input").val(eval($(this).val()));
+		console.log("gg");
+	});
+</script>
+</body>
+</html>
+
+

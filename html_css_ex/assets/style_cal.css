@@ -1,0 +1,55 @@
+#container {
+	width: 400px;
+	background-color: #BEBEBEFF;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+#cover {
+	
+
+}
+
+.input-group {
+	height: 70px;
+}
+
+.num {
+	background-color: #000000FF;
+	width: 90%;
+	height: 50px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	position:relative;
+}
+
+.operator {
+	background-color: #64605FFF;
+	width: 90%;
+	height: 50px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	position:relative;
+}
+
+span {
+	position: absolute;
+    text-align: center;
+    left: 50%; 
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+}
+
+.dropdown-toggle {
+	height: 100%;
+}
+
+.row {
+	margin-bottom: 10px;
+}
+
+.col-sm-3 {
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+}
