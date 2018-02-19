@@ -8,52 +8,68 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
 </head>
 <body>
+	<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+		<div class="modal-dialog modal-sm" role="document">
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <h4 class="modal-title">Confirm</h4>
+			</div>
+			<div class="modal-body">
+			  <p>Do you want to clear all?</p>
+			</div>
+			<div class="modal-footer">
+			  <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+			  <button type="button" class="btn btn-danger clear-all" data-dismiss="modal">Yes</button>
+			</div>
+		  </div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	  </div><!-- /.modal -->
 
 <div id="container" class="container-fluid">
-	<div id="cover">
+	
 		<div class="row">
-			<div class="col-sm-12">
+			<div class="col-sm-12 col-xs-12">
 				<div class="input-group input-lg">
 			      <div class="input-group-btn">
-			        <button type="button" class="btn btn-default dropdown-toggle btn-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-hidden="true"><span class="caret"></span></button>
+			        <button type="button" data-toggle="dropdown" data-placement="left" title="History" class="btn btn-default dropdown-toggle btn-lg history" aria-haspopup="true" aria-expanded="false" aria-hidden="true"><span class="caret"></span></button>
 			        <ul class="dropdown-menu">
-			          <li><a href="#">History</a></li>
+			          <li>History</li>
 			          <li role="separator" class="divider"></li>
 			        </ul>
 			      </div><!-- /btn-group -->
-			      <input type="text" class="form-control input-lg text-right" readonly>
+			      <input type="text" class="form-control input-lg text-right" data-toggle="tooltip" data-placement="right" title="Result" readonly>
 			    </div><!-- /input-group --> 
 			</div>
 		</div>
 
 		<div class="row">
-			<div class="col-sm-3"><div class="center-block num btn"><span>1</span></div></div>
-			<div class="col-sm-3"><div class="center-block num btn"><span>2</span></div></div>
-			<div class="col-sm-3"><div class="center-block num btn"><span>3</span></div></div>
-			<div class="col-sm-3"><div class="center-block num btn"><span>0</span></div></div>
+			<div class="col-sm-3 col-xs-6"><button class="center-block num"><span>1</span></button></div>
+			<div class="col-sm-3 col-xs-6"><button class="center-block num"><span>2</span></button></div>
+			<div class="col-sm-3 col-xs-6"><button class="center-block num"><span>3</span></button></div>
+			<div class="col-sm-3 col-xs-6"><button class="center-block num"><span>0</span></button></div>
 		</div>
 
 		<div class="row">
-			<div class="col-sm-3"><div class="center-block num btn"><span>4</span></div></div>
-			<div class="col-sm-3"><div class="center-block num btn"><span>5</span></div></div>
-			<div class="col-sm-3"><div class="center-block num btn"><span>6</span></div></div>
-			<div class="col-sm-3"><div class="center-block operator btn"><span>cl</span></div></div>
+			<div class="col-sm-3 col-xs-6"><button class="center-block num"><span>4</span></button></div>
+			<div class="col-sm-3 col-xs-6"><button class="center-block num"><span>5</span></button></div>
+			<div class="col-sm-3 col-xs-6"><button class="center-block num"><span>6</span></button></div>
+			<div class="col-sm-3 col-xs-6"><button class="center-block operator"><span>cl</span></buttondiv></div>
 		</div>
 
 		<div class="row">
-			<div class="col-sm-3"><div class="center-block num btn"><span>7</span></div></div>
-			<div class="col-sm-3"><div class="center-block num btn"><span>8</span></div></div>
-			<div class="col-sm-3"><div class="center-block num btn"><span>9</span></div></div>
-			<div class="col-sm-3"><div class="center-block operator btn"><span>=</span></div></div>
+			<div class="col-sm-3 col-xs-6"><button class="center-block num"><span>7</span></button></div>
+			<div class="col-sm-3 col-xs-6"><button class="center-block num"><span>8</span></button></div>
+			<div class="col-sm-3 col-xs-6"><button class="center-block num"><span>9</span></button></div>
+			<div class="col-sm-3 col-xs-6"><button class="center-block operator"><span>=</span></button></div>
 		</div>
 
 		<div class="row">
-			<div class="col-sm-3"><div class="center-block operator btn"><span>+</span></div></div>
-			<div class="col-sm-3"><div class="center-block operator btn"><span>-</span></div></div>
-			<div class="col-sm-3"><div class="center-block operator btn"><span>*</span></div></div>
-			<div class="col-sm-3"><div class="center-block operator btn"><span>/</span></div></div>
+			<div class="col-sm-3 col-xs-6"><button class="center-block operator"><span>+</span></button></div>
+			<div class="col-sm-3 col-xs-6"><button class="center-block operator"><span>-</span></button></div>
+			<div class="col-sm-3 col-xs-6"><button class="center-block operator"><span>*</span></button></div>
+			<div class="col-sm-3 col-xs-6"><button class="center-block operator"><span>/</span></button></div>
 		</div>
-	</div>
+	
 </div>
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
@@ -61,6 +77,7 @@
 	var val = "";
 	var eq = false;
 	var drop_res = [];
+	var err = false;
 	$(".num, .operator").click(function(){		
 		if(($(this).text() != "=") && ($(this).text() != "cl")) {
 			if(($(this).text() != "+") && ($(this).text() != "-") && ($(this).text() != "*") && ($(this).text() != "/")) {
@@ -72,43 +89,85 @@
 				$("input").val(val);
 			} else {
 				eq = false;
-				if (val != ""){
-					val += $(this).text();
-					$("input").val(val);
-				}
+				val += $(this).text();
+				$("input").val(val);
 			}			
 		} else if($(this).text() == "=") { 
+			try { 
+				var res = eval(val); }
+			catch(e) {
+				$("input").addClass("alert alert-danger");
+				$("input").val("Error");
+				setTimeout(function(){
+    				$("input").removeClass("alert alert-danger");
+					}, 1000);				
+				val = "";
+				err= true;
+			};
+
 			if(drop_res.length < 3) {
 				drop_res.push(val);
 			} else {
 				drop_res.shift();
 				drop_res.push(val);
 			};
-			var res = eval(val);
-			$("input").val(res);
-			val = res;
-			eq = true;
-		} else { 
+			
+			if(err == false) {
+				if(res == "Infinity") {
+				$("input").addClass("alert alert-warning");
+				$("input").val("Divide by zero error");
+				setTimeout(function(){
+    				$("input").removeClass("alert alert-warning");
+					}, 1000);
 				val = "";
-				$("input").val(val);
-				eq = false;
+				} else {
+					$("input").val(res);
+					val = res;
+				};
+			};
+			eq = true;
+			err = false;
+		} else { 
+				$('#myModal').modal('show')
 			}
 
 	});
 
-	$("button").click(function() {
+	$(".history").click(function() {
 		$("ul.dropdown-menu .add").remove();
 		for(var i = 0; i < drop_res.length; i++) {
-			$("ul.dropdown-menu").append("<li class=\"add\"><a href=\"#\">"+drop_res[i]+"</a></li>")
+			$("ul.dropdown-menu").append('<li class="add" onclick="pickHistory(this)">'+drop_res[i]+'</li>')
 		}
 	});
 
-	$("ul.dropdown-menu .add").click(function() {
-		$("input").val(eval($(this).val()));
-		console.log("gg");
+	$(".history").hover(function() {
+		$(this).tooltip('show');
+	}, function() {$(this).tooltip('hide');
 	});
+
+	$(".clear-all").click(function(){
+		val = "";
+		$("input").val(val);
+		eq = false;
+	});
+
+	function pickHistory(tag) {
+		var res = eval(tag.innerText);
+		if(res == "Infinity") {
+			$("input").addClass("alert alert-warning");
+			res = "Divide by zero error";
+			setTimeout(function(){
+    				$("input").removeClass("alert alert-warning");
+					}, 1000);
+		}
+		$("input").val(res);
+		val = res;
+	};
+
+	$(function () {
+  		$('[data-toggle="tooltip"]').tooltip()
+	});
+
 </script>
 </body>
 </html>
-
-
