@@ -20,7 +20,7 @@
 		</div>
 		<div class="right-side col-sm-6 col-xs-12">
 			<h2>PERSONAL INFO</h2>
-			<form class="form-horizontal">
+			<form class="form-horizontal info-form">
 				<div class="form-group">
 					<label class="col-sm-4 col-xs-12">First name:</label>
 					<div class="col-sm-8 col-xs-12">
@@ -44,10 +44,10 @@
 						<div class="col-sm-8 col-xs-12">
 							<div class="radio">
 								<label>
-									<input type="radio" name="gender" value="male"> Male 
+									<input type="radio" value="male" name="gender"> Male 
 								</label>
 								<label>
-									<input type="radio" name="gender" value="female"> female
+									<input type="radio" value="female" name="gender"> female
 								</label>
 							</div>
 						</div>
@@ -122,6 +122,54 @@
 </div>
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/jquery.validate.min.js"></script>
+<script type="text/javascript">
+	$.validator.setDefaults({
+			submitHandler: function () {
+				alert( "submitted!" );
+			}
+		});
+	$(".info-form").validate({
+		rules : {
+			firstname: {
+				required: true,
+				minlength: 5
+			},
+			lastname: {
+				required: true,
+				minlength: 5
+			},
+			age: {
+				required: true,
+				number: true
+			},
+			gender: "required"
+		},
+		messages : {
+			firstname: {
+				required: "please enter your first name",
+				minlength: "min length is 5"
+			},
+			lastname: {
+				required: "please enter your last name",
+				minlength: "min length is 5"
+			},
+			age: {
+				required: "please enter your age",
+				number: "your age is number"
+			},
+			gender: "please choose your gender"
+		},
+		errorPlacement: function(error, element) {
+			if (element.attr("type")=="radio") {
+				error.appendTo('.radio');
+			} else {
+				error.insertAfter(element);
+			}
+  		 }
+	})
+
+</script>
 </body>
 </html>
 
