@@ -9,7 +9,7 @@ bien toan cuc se duoc tu dong thiet lap ngay ca trong function khi khong su dung
 
 # naming convention (cach dat ten ham va bien)
 Hyphens : first-name
-Snake (hay Underscore) : first-name
+Snake (hay Underscore) : first_name
 Upper Camel case : FirstName
 Lower Camel case : firstName  # use for JS
 
