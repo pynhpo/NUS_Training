@@ -1,0 +1,26 @@
+2.4.1 :001 > d = User.new
+   (0.5ms)  SET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483
+ => #<User id: nil, name: nil, email: nil, age: nil, created_at: nil, updated_at: nil> 
+2.4.1 :002 > d.save
+   (0.5ms)  BEGIN
+  User Exists (27.2ms)  SELECT  1 AS one FROM `users` WHERE `users`.`email` IS NULL LIMIT 1
+   (0.2ms)  ROLLBACK
+ => false 
+2.4.1 :003 > d.errors.messages
+ => {:name=>["can't be blank", "can not be blank"], :email=>["can't be blank"], :age=>["can't be blank", "is not a number"]} 
+2.4.1 :004 > d = User.new
+ => #<User id: nil, name: nil, email: nil, age: nil, created_at: nil, updated_at: nil> 
+2.4.1 :005 > d.age = 18
+ => 18 
+2.4.1 :006 > d.name = "binh"
+ => "binh" 
+2.4.1 :007 > d.email = "vothanhbinh@gmail.com"
+ => "vothanhbinh@gmail.com" 
+2.4.1 :008 > d.save
+   (0.5ms)  BEGIN
+  User Exists (1.2ms)  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'vothanhbinh@gmail.com' LIMIT 1
+  SQL (0.5ms)  INSERT INTO `users` (`name`, `email`, `age`, `created_at`, `updated_at`) VALUES ('binh', 'vothanhbinh@gmail.com', 18, '2018-02-26 21:16:01', '2018-02-26 21:16:01')
+   (35.2ms)  COMMIT
+ => true 
+2.4.1 :009 > 
+
